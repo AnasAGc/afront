@@ -11,7 +11,10 @@ export class Main extends Component {
   }
 
   componentDidMount = () => {
-    let url = `https://newsapi.org/v2/everything?q=tesla&from=2021-07-05&sortBy=publishedAt&apiKey=6d921101d84c4a80a66c2559721f7783`;
+    let server = process.env.REACT_APP_SER;
+    console.log(server);
+    let url = `${server}/alldata`;
+
     axios.get(url).then((result) => {
       console.log(result.data.articles);
       this.setState({
